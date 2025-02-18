@@ -4,14 +4,11 @@
 import React from 'react';
 
 function StreakTracker({ streak }) {
-  
+
   return (
     <div>
       <h3>🔥 Streak: {streak} days</h3>
       <p>Don&apos;t break the chain!</p>
-      <button onClick={}>
-        Reset Streak
-      </button>
     </div>
   );
 }
