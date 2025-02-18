@@ -2,31 +2,33 @@
 import React from 'react'
 import { useState } from 'react'
 
-// eslint-disable-next-line react/prop-types
-function TaskInput({addTask}) {
-   const [task,setTask] = useState('');
-
-   //handle form submission
-   const handleSubmit = (e) =>{
-    e.preventDefault();
-    if(task.trim()){
-        addTask(task);
-        setTask('');
-    }
-   };
-
-return (
-    <form onSubmit={handleSubmit}>
-        <input 
-        type="text"
-        value={task}
-        onChange ={ (e)=> setTask(e.target.value)}
-        placeholder="What are you avoiding?"
-        />
-    <button type='submit'>Add Task</button>
-    </form>
+function TaskInput({ addTask }) {
+    // State for the input
+    const [task, setTask] = useState('');
+  
+    // Handle form submission
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if (task.trim()) {
+        addTask(task);  // Pass task to parent
+        setTask('');    // Clear input
+      }
+    };
+  
     
-  );
-}
 
-export default TaskInput
+
+    return (
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+          placeholder="What are you avoiding?"
+        />
+        <button type="submit">Add Task</button>
+      </form>
+    );
+  }
+  
+  export default TaskInput;
